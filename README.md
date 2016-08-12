@@ -8,7 +8,7 @@
 server {
 
     listen      80;
-    
+   
     server_name    localhost;
     
     root  "/home/micro-kiwi";
