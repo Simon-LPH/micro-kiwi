@@ -13,6 +13,9 @@ define('DB_USER', 'DB_USER');
 define('DB_PASS', 'DB_PASS');
 define('DB_NAME', 'DB_NAME');
 
+define('APP_ID', 'WX_APP_ID');
+define('APP_SECRET', 'WX_APP_SECRET');
+
 /*
 + 设置独立模块域名
 */
