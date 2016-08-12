@@ -4,9 +4,13 @@
 # Nginx Config
 
 server {
+
     listen      80;
+    
     server_name    localhost;
+    
     root  "/home/micro-kiwi";
+    
     location / {
         index  index.html index.htm index.php;
  
@@ -23,4 +27,5 @@ server {
         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
         include        fastcgi_params;
     }
+    
 }
