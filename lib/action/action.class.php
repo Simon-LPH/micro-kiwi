@@ -21,6 +21,12 @@ class Action
 			}
 		}
 
+		if(count($params) > 0){
+			foreach($params as $k=>$v){
+				$params[$k] = basename($v);
+			}
+		}
+
 		$action_path = ACTION_PATH;
 
 		if(count($params) == 0){
@@ -48,6 +54,9 @@ class Action
 				else{
 					$controller = 'index';
 				}
+			}
+			else{
+				$controller = 'index';
 			}
 
 			if(count($params) > 0){
