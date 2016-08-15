@@ -97,7 +97,13 @@ function loadTpl($file, $data = [], $module = ''){
 	$tpl = SYS_ROOT."runtime/tpl/{$file}.html.php";
 
 	if(!file_exists($src)){
-		exit('<h1>Template Not Exists.</h1>');
+		if(DEGUG){
+			//create template file
+			file_put_contents($src, "Template File {$file}.html");
+		}
+		else{
+			exit('<h1>Template Not Exists.</h1>');
+		}
 	}
 
 	if(DEGUG == true || !file_exists($tpl) || filemtime($src) > filemtime($tpl)){
