@@ -8,8 +8,6 @@ define('MODEL_PATH', SYS_ROOT.'lib/model/');
 define('TOOL_PATH', SYS_ROOT.'lib/tools/');
 define('TEMPLATE_PATH', SYS_ROOT.'template/');
 define('SITE_URL', 'http://'.$_SERVER['HTTP_HOST'].'/');
-define('WEIXIN_OAUTH_CALLBACK', '');
-define('WEIXIN_OAUTH_STATE', 'wx_state');
 
 require_once SYS_ROOT."config.php";
 require_once SYS_ROOT."lib/action/action.class.php";
@@ -17,7 +15,7 @@ require_once SYS_ROOT."lib/model/model.class.php";
 
 function GET($p, $function = '', $default = ''){
 	$v = isset($_GET[$p]) ? $_GET[$p] : $default;
-	
+
 	if($function){
 		if( function_exists($function) ){
 			$v = $function($v);
@@ -98,11 +96,14 @@ function loadTpl($file, $data = [], $module = ''){
 	$src = TEMPLATE_PATH."{$file}.html";
 	$tpl = SYS_ROOT."runtime/tpl/{$file}.html.php";
 
+	if(!file_exists($src)){
+		exit('<h1>Template Not Exists.</h1>');
+	}
+
 	if(DEGUG == true || !file_exists($tpl) || filemtime($src) > filemtime($tpl)){
 		$str = getTplContent($src, $module);
 		file_put_contents($tpl, $str);
 	}
-
 	extract($data);
 
 	include $tpl;

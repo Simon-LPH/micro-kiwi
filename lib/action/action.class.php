@@ -144,7 +144,11 @@ class Action
 		header('content-type:text-html; charset=utf-8');
 
 		if(!$file){
-			$file = $this->action;
+			$file = '';
+			if($this->controller != 'index'){
+				$file .= $this->controller.'.';
+			}
+			$file .= $this->action;
 		}
 		
 		if(strpos($file, "/") ===  false){

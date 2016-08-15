@@ -19,6 +19,9 @@ define('DB_NAME', 'DB_NAME');
 define('APP_ID', 'WX_APP_ID');
 define('APP_SECRET', 'WX_APP_SECRET');
 
+define('WEIXIN_OAUTH_CALLBACK', '');
+define('WEIXIN_OAUTH_STATE', 'wx_state');
+
 /*
 + 设置独立模块域名
 */
