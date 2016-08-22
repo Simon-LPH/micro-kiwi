@@ -113,7 +113,7 @@ class Action
 	+ 输出文本
 	*/
 	protected function printContent($string, $mobile = true){
-		header('content-type:text-html; charset=utf-8');
+		header('content-type:text/html; charset=utf-8');
 		echo "<html>";
 		if($mobile){
 			echo '
@@ -127,7 +127,7 @@ class Action
 	+ 输出Json
 	*/
 	protected function jsonReturn($data = []){
-		header('content-type:text-html; charset=utf-8');
+		header('content-type:text/html; charset=utf-8');
 
 		if(!isset($data['success'])){
 			$data['success'] = 0;
@@ -141,7 +141,7 @@ class Action
 	+ 输出页面
 	*/
 	protected function Gui($data = [], $file = ''){
-		header('content-type:text-html; charset=utf-8');
+		header('content-type:text/html; charset=utf-8');
 
 		if(!$file){
 			$file = '';
